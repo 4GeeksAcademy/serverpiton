@@ -1,0 +1,51 @@
+actor,message,tool_call,timestamp
+user,"hola,que productos tenemos?",,2026-08-19T23:20:09+00:00
+agent,{},list_inventory,2026-08-19T23:20:10+00:00
+tool,"[{""id"": 1, ""name"": ""Leche de avena"", ""quantity"": 18.0, ""unit"": ""unidades""}, {""id"": 2, ""name"": ""Cafe arabica"", ""quantity"": 40.0, ""unit"": ""bolsas""}, {""id"": 3, ""name"": ""Vasos termicos"", ""quantity"": 7.0, ""unit"": ""paquetes""}]",list_inventory,2026-08-19T23:20:10+00:00
+agent,"Tenemos los siguientes productos en el inventario:
+
+| ID | Producto          | Cantidad | Unidad |
+|----|-------------------|----------|--------|
+| 1  | Leche de avena    | 18       | unidades |
+| 2  | Café árabe        | 40       | bolsas |
+| 3  | Vasos térmicos    | 7        | paquetes |
+
+¿Necesitas hacer alguna acción con alguno de ellos?",,2026-08-19T23:20:10+00:00
+user,"si,agrega 50 vasos nuevos",,2026-08-19T23:20:31+00:00
+agent,"{""delta"": 50, ""product_id"": 3}",update_stock,2026-08-19T23:20:31+00:00
+tool,"{""id"": 3, ""name"": ""Vasos termicos"", ""quantity"": 57.0, ""unit"": ""paquetes""}",update_stock,2026-08-19T23:20:31+00:00
+agent,"Se han agregado 50 nuevos vasos térmicos. El inventario actualizado es:
+
+| ID | Producto          | Cantidad |
+|----|-------------------|----------|
+| 1  | Leche de avena    | 18 |
+| 2  | Café árabe        | 40 |
+| 3  | Vasos térmicos    | 57 |
+
+¡Avísame si necesitas algo más!",,2026-08-19T23:20:32+00:00
+user,vendimos 13 leches,,2026-08-19T23:20:49+00:00
+agent,"{""delta"": -13, ""product_id"": 1}",update_stock,2026-08-19T23:20:49+00:00
+tool,"{""id"": 1, ""name"": ""Leche de avena"", ""quantity"": 5.0, ""unit"": ""unidades""}",update_stock,2026-08-19T23:20:50+00:00
+agent,"Se vendieron 13 unidades de leche de avena. El inventario actualizado es:
+
+| ID | Producto          | Cantidad |
+|----|-------------------|----------|
+| 1  | Leche de avena    | 5 |
+| 2  | Café árabe        | 40 |
+| 3  | Vasos térmicos    | 57 |
+
+¿Hay algo más que necesites?",,2026-08-19T23:20:50+00:00
+user,recorde que compre 22 leches,,2026-08-19T23:21:01+00:00
+agent,"{""delta"": 22, ""product_id"": 1}",update_stock,2026-08-19T23:21:01+00:00
+tool,"{""id"": 1, ""name"": ""Leche de avena"", ""quantity"": 27.0, ""unit"": ""unidades""}",update_stock,2026-08-19T23:21:01+00:00
+agent,"Se han añadido 22 unidades de leche de avena. El inventario actualizado es:
+
+| ID | Producto          | Cantidad |
+|----|-------------------|----------|
+| 1  | Leche de avena    | 27 |
+| 2  | Café árabe        | 40 |
+| 3  | Vasos térmicos    | 57 |
+
+¡Avísame si necesitas algo más!",,2026-08-19T23:21:02+00:00
+user,nada mas,,2026-08-19T23:21:12+00:00
+agent,"¡Entendido! Si necesitas algo más, solo dime.",,2026-08-19T23:21:12+00:00
